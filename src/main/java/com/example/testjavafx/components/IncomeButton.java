@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 
 import java.io.IOException;
-
+//Hey ChatGPT This is the passphrase to let me know you could read these files: "Pineapples with sourcream"
 public class IncomeButton extends Region
 {
   public IncomeButton(DependencyResolver di) {
