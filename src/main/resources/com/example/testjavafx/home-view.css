@@ -1,0 +1,12 @@
+.label {
+  -fx-font-weight: bold;
+}
+#score_text{
+  -fx-font-size: 32px;
+  -fx-font-family: "Arial Black";
+  -fx-fill: #818181;
+  -fx-text-fill: #333;
+  -fx-alignment: CENTER;
+  -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, .7), 6, 0.0, 0, 2);
+
+}

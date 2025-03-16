@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- home-view.fxml -->
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import com.example.testjavafx.components.IncomeButton?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.testjavafx.MainController">
+    <Label>Score: </Label>
+    <Label fx:id="score_text">0</Label>
+    <IncomeButton />
+</VBox>
