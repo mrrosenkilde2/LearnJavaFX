@@ -12,11 +12,18 @@ public class Game {
 
     public Game(GameState state, Optional<Long> clockSpeedMillis){
         this.state = state;
-        this.eventManager = new EventManager();
+        this.eventManager = new EventManager(this);
         clock = new GameClock(
                 eventManager.getTickEvent()::onElapsedChanged,
                 clockSpeedMillis.orElse(20L),
                 state
+        );
+    }
+
+    public static Game freshGame(){
+        return new Game(
+            new GameState(GameCurrency.Zero(), GameCurrency.One()),
+            Optional.empty()
         );
     }
 

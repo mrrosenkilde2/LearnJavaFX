@@ -7,6 +7,6 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.testjavafx.MainController">
     <Label>Score: </Label>
-    <Label fx:id="score_text">0</Label>
-    <IncomeButton />
+    <Label fx:id="scoreText">0</Label>
+    <IncomeButton fx:id="incomeButton"/>
 </VBox>

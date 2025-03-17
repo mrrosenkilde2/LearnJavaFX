@@ -1,5 +1,6 @@
-package com.example.testjavafx;
+package com.example.testjavafx.loaders;
 
+import com.example.testjavafx.DependencyResolver;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.net.URL;

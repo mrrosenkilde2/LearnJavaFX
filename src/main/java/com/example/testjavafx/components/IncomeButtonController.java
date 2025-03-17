@@ -16,8 +16,7 @@ public class IncomeButtonController {
 
     @FXML
     public void onIncomeButtonClicked(){
-        if(game != null){
-            game.getEventManager().getIncomeClickEvent().click();
-        }
+        game.getEventManager().getIncomeClickEvent().click();
+        game.getEventManager().getBaseCurrencyChangedEvent().notifyObservers();
     }
 }

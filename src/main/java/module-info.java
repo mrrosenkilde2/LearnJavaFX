@@ -9,4 +9,6 @@ module com.example.testjavafx {
     opens com.example.testjavafx.components to javafx.fxml;
     exports com.example.testjavafx;
     exports com.example.testjavafx.components;
+  exports com.example.testjavafx.loaders;
+  opens com.example.testjavafx.loaders to javafx.fxml;
 }

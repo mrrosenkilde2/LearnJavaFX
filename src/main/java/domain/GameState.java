@@ -13,4 +13,8 @@ public record GameState(
     public boolean baseCurrencyIsDifferentFrom(GameCurrency other){
         return baseCurrency.isDifferentFrom(other);
     }
+
+    public boolean clickValueIsDifferentFrom(GameCurrency gameCurrency) {
+        return clickValue.isDifferentFrom(gameCurrency);
+    }
 }

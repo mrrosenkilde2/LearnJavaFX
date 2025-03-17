@@ -21,9 +21,15 @@ public abstract class DefaultEventImpl<T extends Observable<T>> implements Obser
         observers.remove(observer);
     }
 
+    protected void notifyObservers(T _this){
+        for(Observer<T> obs : observers)
+            obs.handleChange(_this);
+    }
+
     @Override
     public void notifyObservers() {
         for(Observer<T> obs : observers)
+            //cast is ugly here but its the best way the observers can reserve the right class without breaking the interface
             obs.handleChange((T) this);
     }
 }

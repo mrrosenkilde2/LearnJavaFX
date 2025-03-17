@@ -2,6 +2,8 @@ package com.example.testjavafx;
 
 import com.example.testjavafx.homePage.HomeScene;
 import com.example.testjavafx.homePage.HomeStage;
+import com.example.testjavafx.loaders.FXMLLoaderWithDI;
+import com.example.testjavafx.loaders.HomePageLoader;
 import domain.Game;
 import domain.GameCurrency;
 import domain.GameState;
@@ -17,19 +19,12 @@ public class FreshApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         DependencyResolver factory = new ApplicationControllerFactory(
-            new Game(
-                new GameState(GameCurrency.Zero(), GameCurrency.One()),
-                Optional.empty()
-            )
-        );
-        FXMLLoader loader = new FXMLLoaderWithDI(
-            factory,
-            FreshApplication.class.getResource("home-view.fxml")
+            Game.freshGame()
         );
         try {
             new HomeStage(
                 new HomeScene(
-                    loader.load()
+                    new HomePageLoader(factory).load()
                 )
             ).show();
         } catch (IOException e) {

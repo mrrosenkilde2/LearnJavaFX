@@ -28,4 +28,11 @@ public class PostTickEvent extends DefaultEventImpl<PostTickEvent>{
     public GameState getCurrentState() {
         return currentState;
     }
+
+    public boolean baseCurrencyChanged(){
+        return this.getCurrentState().baseCurrencyIsDifferentFrom(this.getPreviousState().baseCurrency());
+    }
+    public boolean clickValueChanged() {
+        return this.getCurrentState().clickValueIsDifferentFrom(this.getPreviousState().clickValue());
+    }
 }
