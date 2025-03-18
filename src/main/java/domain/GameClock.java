@@ -4,18 +4,19 @@ import domain.events.PostTickEvent;
 import util.Runnable;
 import util.Stopwatch;
 
+import java.time.Duration;
 import java.util.concurrent.*;
 
 public class GameClock {
     private final ScheduledExecutorService scheduler;
     private ScheduledFuture<?> future;
-    private final Runnable<Float> event;
+    private final Runnable<Duration> event;
     private final Stopwatch stopwatch;
     private final long intervalMillis;
     private final GameState stateRef;
     private final PostTickEvent postTickEvent;
 
-    public GameClock(Runnable<Float> event, long intervalMillis, GameState stateRef) {
+    public GameClock(Runnable<Duration> event, long intervalMillis, GameState stateRef) {
         this.event = event;
         this.intervalMillis = intervalMillis;
         this.stateRef = stateRef;
@@ -36,7 +37,7 @@ public class GameClock {
     }
 
     private void tick() {
-        event.run(stopwatch.getElapsedTimeMillis());
+        event.run(stopwatch.getElapsed());
         postTickEvent.notifyObserversGameStateChanged(stateRef);
     }
     public PostTickEvent getPostTickEvent() { return postTickEvent; }

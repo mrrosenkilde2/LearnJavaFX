@@ -1,5 +1,7 @@
 package util;
 
+import java.time.Duration;
+
 public class Stopwatch {
     private long startTime;
     private long endTime;
@@ -27,7 +29,7 @@ public class Stopwatch {
         isRunning = false;
     }
 
-    public long getElapsedTimeNanos() {
+    private long getElapsedTimeNanos() {
         if (isRunning) {
             return System.nanoTime() - startTime;
         } else {
@@ -35,8 +37,8 @@ public class Stopwatch {
         }
     }
 
-    public float getElapsedTimeMillis() {
-        return getElapsedTimeNanos() / (float)1_000_000;
+    public Duration getElapsed() {
+        return Duration.ofNanos(getElapsedTimeNanos());
     }
 
 }

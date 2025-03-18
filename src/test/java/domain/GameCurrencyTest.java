@@ -10,13 +10,13 @@ public class GameCurrencyTest
   @Test
   void isEqualToItself(){
     GameCurrency currency = GameCurrency.One();
-    assertTrue(currency.equals(currency));
+    assertEquals(currency, currency);
   }
   @Test
   void isEqualToAnotherCurrencyWithSameValue(){
     GameCurrency currency = GameCurrency.One();
     GameCurrency other = GameCurrency.fromInt(1);
-    assertTrue(currency.equals(other));
+    assertEquals(currency, other);
   }
   @Test
   public void OneIsDifferentFromZero() {

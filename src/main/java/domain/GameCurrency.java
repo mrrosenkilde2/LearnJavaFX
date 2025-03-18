@@ -35,5 +35,23 @@ public class GameCurrency {
     public GameCurrency deepCopy() {
         return new GameCurrency(value);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Check for reference equality
+        if (obj == null || getClass() != obj.getClass()) return false; // Ensure correct type
+
+        GameCurrency that = (GameCurrency) obj;
+        return value.equals(that.value); // Compare values
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode(); // Required when overriding equals
+    }
+
+    public GameCurrency multiply(float value) {
+        return new GameCurrency(this.value.multiply(BigDecimal.valueOf(value)));
+    }
 }
 

@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 public record GameState(
         GameCurrency baseCurrency,
         GameCurrency clickValue

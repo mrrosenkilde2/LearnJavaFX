@@ -1,18 +1,20 @@
 package domain.events;
 
+import java.time.Duration;
+
 public class TickEvent extends DefaultEventImpl<TickEvent> {
-    private float elapsed;
+    private Duration elapsed;
 
     public TickEvent() {
         super();
     }
 
-    public void onElapsedChanged(float new_elapsed) {
-        this.elapsed = new_elapsed;
+    public void onElapsed(Duration elapsedMillis) {
+        this.elapsed = elapsedMillis;
         super.notifyObservers();
     }
 
-    public float getElapsed() {
+    public Duration getElapsed() {
         return elapsed;
     }
 }
